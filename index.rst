@@ -8,9 +8,17 @@ Welcome to FRC Programming Done Right's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Introduction:
+   :glob:
+   
+   introduction/*
 
-
+.. toctree::
+   :maxdepth: 2
+   :caption: Control
+   :glob:
+   
+   control/*
 
 Indices and tables
 ==================
