@@ -16,7 +16,9 @@ Imagine you are driving a car and you see a stop sign. When you're about, 200ft 
 
 In robotics, the same concept can be applied. Many teams use PID control to drive during autonomous, using encoders as their sensor, shooting, using cameras as their sensor, or rotating, using gyros as their sensor.
 
-The main equation for PID Control is::
+The main equation for PID Control is
+::
+
     output = P * error + I * total_error + D * delta_error
 
 Each of these parts is explained below.
@@ -25,9 +27,9 @@ Which ones to use
 -----------------
 P control is best used on slow moving parts that aren't subject to overshooting, or parts of the robot that don't need complete accuracy. Turning to a certain degree, for example, can be done with just P in some cases (but not all).
 
-The most common control loop is PI. It combines simple P control with the fine tuning feature of an Integral gain.
+The most common control loop is PI. It combines simple P control with the fine tuning feature of an Integral gain. This is teams are most likely to use.
 
-PID isn't completely necessary in FRC.
+Complete PID may be overkill for an FRC robot, but if you find that PI isn't working *enough*, feel free to add D gain
 
 Proportional
 ------------
@@ -63,7 +65,25 @@ Derivative
 ----------
 Derivative gain works by calculating the change in error. By finding this change, it can predict future system behavior, and reduce settling time. It does this by applying a brake more or less. This can be useful if it is imperative that you don't overshoot. This isn't even used in the industry much, but if you find yourself with long settling times, it may help to introduce a Derivative gain.
 
-Tuning Method
--------------
-.. todo::
-  Zeiger-Nicols
+Tuning Methods
+--------------
+
+Zeigler-Nichols
+
+
+Zeigler-Nichols tuning method works by increasing ``P`` until the system starts oscillating, and then using the period of the oscillation to calculate ``I`` and ``D``.
+
+#. Start by setting ``I`` and ``D`` to 0.
+#. Increase ``P`` until the system starts oscillating for a period of ``Tu``.  You want the oscillation to be large enough that you can time it. This maximum ``P`` will be referred to as ``Ku``.
+#. Use the chart below to calculate different ``P``, ``I``, and ``D`` values.
+
+============= ====== ========= ==========
+Control Types Kp     Ki           Kd
+============= ====== ========= ==========
+P             .5*Ku    \-       \-
+PI            .45*Ku .54*Ku/Tu  \-
+PID            .6*Ku 1.2*Ku/Tu 3*Ku*Tu/40
+============= ====== ========= ==========
+
+.. note::
+    The period of oscillation is one full 'stroke', there and back. Imagine a grandfather clock with a pendulum, when it is all the way to the right, swings to the left, and hits the right again, that is 1 period.
