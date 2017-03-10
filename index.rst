@@ -9,15 +9,18 @@ Welcome to FRC Programming Done Right's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Introduction:
-   :glob:
-   
-   introduction/*
+
+   introduction/variables.rst
+   introduction/methods.rst
+   introduction/classes.rst
+   introduction/conditions.rst
+   introduction/loops.rst
 
 .. toctree::
    :maxdepth: 2
    :caption: Control
    :glob:
-   
+
    control/*
 
 Indices and tables
