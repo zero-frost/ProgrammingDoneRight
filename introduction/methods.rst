@@ -4,6 +4,7 @@ Method
 
 Let's say you have 3 variables, ``x``, ``y``, and ``z``. You are tasked with performing some function on them. In this case, you want to print out the variable added to 3, added to 6, and added to 9. You create this code
 ::
+
     x = 5
     y = 10
     z = 0
@@ -24,6 +25,7 @@ A method is a block of code that you can refer to anywhere in the program. You c
 
 Let's look back at the example above. The code that is repeated is
 ::
+
     print(n + 3)
     print(n + 6)
     print(n + 9)
@@ -34,6 +36,7 @@ Parameter
 ---------
 A methods parameters are like placeholders. When a function is invoked, you pass a value as a parameter. This value is referred to as the actual parameter or argument. The parameter list refers to the type, order, and number of the parameters of a function. Parameters are optional; that is, a function may contain no parameters. However, if a function has parameters, you must use them (unless you're using Python, which has optional parameters). You define parameters like so
 ::
+
     function(param1, param2, param3)
 
 .. note::
@@ -41,11 +44,14 @@ A methods parameters are like placeholders. When a function is invoked, you pass
 
 You can then use these parameters in the function. For the example above
 ::
+
     printThrees(number)
+
 When calling a function, you must pass in parameters in the order they are listed, separated by commas.
 
 In the method **body**, we would put all the code that repeats.
 ::
+
     printThrees([int] number)
         print(number + 3)
         print(number + 6)
@@ -56,6 +62,7 @@ In the method **body**, we would put all the code that repeats.
 
 We can then invoke, aka **call**, this method with
 ::
+
     printThrees(x)
     printThrees(y)
     printThrees(z)
