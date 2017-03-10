@@ -1,6 +1,6 @@
-======
-Method
-======
+=======
+Methods
+=======
 
 Let's say you have 3 variables, ``x``, ``y``, and ``z``. You are tasked with performing some function on them. In this case, you want to print out the variable added to 3, added to 6, and added to 9. You create this code
 ::
