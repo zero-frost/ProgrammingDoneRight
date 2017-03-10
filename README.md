@@ -4,7 +4,7 @@ FRC Programming Done Right
 ##Contributing
 FRC-PDR is created using Sphinx. To install
 
-`pip3 install sphinx sphinx-autobuild sphinx-rtd-theme sphinx-tabs`
+`pip3 install -r requirements.txt`
 
 After that, you just need to run
 
