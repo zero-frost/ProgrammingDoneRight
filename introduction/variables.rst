@@ -8,15 +8,15 @@ In programming, a variable is something can be given a value. A variable's name 
 
    .. code-tab:: java
 
-       int x = 3
-       boolean frog = true
-       String player2 = "Tim"
+       int x = 3;
+       boolean frog = true;
+       String player2 = "Tim";
 
    .. code-tab:: c++
 
-       int x = 3
-       bool frog = true
-       string player2 = "Tim"
+       int x = 3;
+       bool frog = true;
+       string player2 = "Tim";
 
    .. code-tab:: py
 
@@ -40,15 +40,15 @@ Primitive types are types that are builtin and have no class associated with the
 
     .. code-tab:: java
 
-       int x = 3 //x is of type 'int'
-       boolean frog = true //frog is a boolean
-       String player2 = "Tim" //player2 is a String. String is not a primitive, although you can create them the same way. String player2 = new String("Tim") would also work.
+       int x = 3; //x is of type 'int'
+       boolean frog = true; //frog is a boolean
+       String player2 = "Tim"; //player2 is a String. String is not a primitive, although you can create them the same way. String player2 = new String("Tim") would also work.
 
     .. code-tab:: c++
 
-       int x = 3
-       bool frog = true //note in java, 'boolean' is the name of the boolean primitive. In c++, it is just 'bool'.
-       string player2 = "Tim" // In C++, string is lowercase, but not a primitive. You must include "string".
+       int x = 3;
+       bool frog = true; //note in java, 'boolean' is the name of the boolean primitive. In c++, it is just 'bool'.
+       string player2 = "Tim"; // In C++, string is lowercase, but not a primitive. You must include "string".
 
     .. code-tab:: py
 

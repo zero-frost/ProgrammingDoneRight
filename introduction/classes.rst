@@ -43,7 +43,7 @@ Then, when you want to create a new **object** of that type, you create it like 
 
     .. code-tab:: py
 
-        object = MyClass();
+        object = MyClass()
 
 When accessing methods in a class, all you need to do is
 
@@ -61,7 +61,7 @@ When accessing methods in a class, all you need to do is
 
     .. code-tab:: py
 
-        object.variable = 3;
+        object.variable = 3
 
 
 .. note::
