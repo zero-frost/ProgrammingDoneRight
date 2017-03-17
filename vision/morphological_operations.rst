@@ -14,7 +14,7 @@ Morphological image processing is a collection of non-linear operations related 
 
 The core idea in binary morphology is to probe an image with a simple, pre-defined shape, and then draw conclusions on how this shape fits or misses the shapes in the image. This simple "probe" is called kernel, and is itself a binary image (i.e., a subset of the space or grid), The kernel dimensions are not limited to 3x3, but OpenCV limits them to be :math:`N\times N` where :math:`N \in \mathbb{Z}_{odd}`, so here we will make the same restrictions.
 
-Here are a two common kernels used:
+Here are two common kernels used:
 
 :math:`\left( \begin{array}{ccc} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{array} \right)`    :math:`\left( \begin{array}{ccc} 0 & 1 & 0 \\ 1 & 1 & 1 \\ 0 & 1 & 0 \end{array} \right)`
 
@@ -31,7 +31,7 @@ Here are a two common kernels used:
        Mat kernel = cv::getStructuringElement(MORPH_RECT, Size(3,3) Point(-1,-1);
        Mat kernel = cv::getStructuringElement(MORPH_CROSS, Size(3,3) Point(-1,-1);
 
-   .. code-tab:: python
+   .. code-tab:: py
 
        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(3,3))
        kernel = cv2.getStructuringElement(cv2.MORPH_CROSS,(3,3))
@@ -63,7 +63,7 @@ The erosion of the binary image :math:`A` by the kernel :math:`B` is defined by:
 
        cv::erode(src, dst, kernel, Point(-1,-1), 1);
 
-   .. code-tab:: python
+   .. code-tab:: py
 
        erosion = cv2.erode(src, kernel, iterations=1)
 
@@ -91,7 +91,7 @@ The dilation of :math:`A` by the structuring element :math:`B` is defined by:
 
        cv::dilate(src, dst, kernel, Point(-1,-1), 1);
 
-   .. code-tab:: python
+   .. code-tab:: py
 
        dilation = cv2.dilate(src, kernel, iterations=1)
 
@@ -131,7 +131,7 @@ Open is another name of erosion followed by dilation. It is useful in removing n
 
        cv::morphologyEx(src, dst, MORPH_OPEN, kernel, Point(-1,-1), 1);  
 
-   .. code-tab:: python
+   .. code-tab:: py
 
        opening = cv2.morphologyEx(src, cv2.MORPH_OPEN, kernel)
 
@@ -158,7 +158,7 @@ Closing is reverse of Opening, Dilation followed by Erosion. It is useful in clo
 
        cv::morphologyEx(src, dst, MORPH_CLOSE, kernel, Point(-1,-1), 1);  
 
-   .. code-tab:: python
+   .. code-tab:: py
 
        closing = cv2.morphologyEx(src, cv2.MORPH_CLOSE, kernel)
 
@@ -185,7 +185,7 @@ It is the difference between dilation and erosion of an image. The result will l
 
        cv::morphologyEx(src, dst, MORPH_GRADIENT, kernel, Point(-1,-1), 1);   
 
-   .. code-tab:: python
+   .. code-tab:: py
 
        opening = cv2.morphologyEx(src, cv2.MORPH_GRADIENT, kernel)
 
