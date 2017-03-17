@@ -3,7 +3,7 @@ Morphological Operations
 
 Binary images may contain noise (pixels that passed the initial threshold test but are not desired). Morphological image processing attempts to remove the noise of images while accounting for the form and structure of the image, as well as preserving the desired pixels' integrity. This guide dives into the math behind morphological operations, and then explains how they can be used in FRC.
 
-.. figure:: ../../../../vision/media/example.png
+.. figure:: ../vision/media/example.png
     :width: 120px
     :align: center
     :height: 60px
@@ -28,7 +28,7 @@ The erosion of the binary image :math:`A` by the kernel :math:`B` is defined by:
 
 :math:`A\ominus B=\bigcap _{{b\in B}}A_{{-b}}.`
 
-.. figure::../../../../vision/media/erode.png
+.. figure:: ../vision/media/erode.png
     :width: 120px
     :align: center
     :height: 60px
@@ -42,7 +42,7 @@ The dilation of :math:`A` by the structuring element :math:`B` is defined by:
 
 :math:`A\oplus B=\bigcup _{{b\in B}}A_{b}.`
 
-.. figure::../../../../vision/media/dilate.png
+.. figure:: ../vision/media/dilate.png
     :width: 120px
     :align: center
     :height: 60px
@@ -68,7 +68,7 @@ Open
 
 Open is another name of erosion followed by dilation. It is useful in removing noise.
 
-.. figure:: ../../../../vision/media/open.png
+.. figure:: ../vision/media/open.png
     :width: 200px
     :align: center
     :height: 100px
@@ -80,7 +80,7 @@ Close
 
 Closing is reverse of Opening, Dilation followed by Erosion. It is useful in closing small holes inside the foreground objects.
 
-.. figure:: ../../../../vision/media/close.png
+.. figure:: ../vision/media/close.png
     :width: 200px
     :align: center
     :height: 100px
@@ -93,7 +93,7 @@ Morphological Gradient
 It is the difference between dilation and erosion of an image. The result will look like the outline of the object.
 
 
-.. figure::../../../../vision/media/radient.png
+.. figure:: ../vision/media/gradient.png
     :width: 200px
     :align: center
     :height: 100px
@@ -104,4 +104,3 @@ Uses in FRC
 -----------
 
 FRC provides less than ideal environments for computer vision. Often times there is noise in your images that cannot be overcome by reducing the exposure of your camera and thresholding. When this occurs, consider using a morphological operation.
-
