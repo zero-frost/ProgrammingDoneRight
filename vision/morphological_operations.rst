@@ -1,0 +1,107 @@
+Morphological Operations
+========================
+
+Binary images may contain noise (pixels that passed the initial threshold test but are not desired). Morphological image processing attempts to remove the noise of images while accounting for the form and structure of the image, as well as preserving the desired pixels' integrity. This guide dives into the math behind morphological operations, and then explains how they can be used in FRC.
+
+.. figure:: ../../../../vision/media/example.png
+    :width: 120px
+    :align: center
+    :height: 60px
+    :alt: A Binay Image
+    :figclass: align-center
+
+Morphological image processing is a collection of non-linear operations related to the shape or morphology of features in an image. Morphological operations rely only on the relative ordering of pixel values and not on their numerical values, therefore making them especially suited to process binary images.
+
+The core idea in binary morphology is to probe an image with a simple, pre-defined shape, and then draw conclusions on how this shape fits or misses the shapes in the image. This simple "probe" is called kernel, and is itself a binary image (i.e., a subset of the space or grid), The kernel dimensions are not limited to 3x3, but OpenCV limits them to be :math:`N\times N` where :math:`N \in \mathbb{Z}_{odd}`, so here we will make the same restrictions.
+
+Here are a few common kernels used:
+
+:math:`\left( \begin{array}{ccc} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{array} \right)`	:math:`\left( \begin{array}{ccc} 1 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 1 & 1 \end{array} \right)`	:math:`\left( \begin{array}{ccc} 0 & 1 & 0 \\ 1 & 1 & 1 \\ 0 & 1 & 0 \end{array} \right)`
+
+
+Defintion: Let :math:`E` be a Euclidean space :math:`\mathbb{R}^d` or an integer grid :math:`\mathbb{Z}^d` for some dimension :math:`d`, and :math:`A` be a a binary image where :math:`A \in E`.
+
+Erosion
+-----------------
+
+The erosion of the binary image :math:`A` by the kernel :math:`B` is defined by:
+
+:math:`A\ominus B=\bigcap _{{b\in B}}A_{{-b}}.`
+
+.. figure::../../../../vision/media/erode.png
+    :width: 120px
+    :align: center
+    :height: 60px
+    :alt: Erosion Example
+    :figclass: align-center
+
+Dilation
+------------
+
+The dilation of :math:`A` by the structuring element :math:`B` is defined by:
+
+:math:`A\oplus B=\bigcup _{{b\in B}}A_{b}.`
+
+.. figure::../../../../vision/media/dilate.png
+    :width: 120px
+    :align: center
+    :height: 60px
+    :alt: Dilation Example
+    :figclass: align-center
+
+Properties of Morphologpical Operations
+---------------------------------------
+
+* They are translation invariant.
+* Dilation is associative.
+* Dilation is distributive over set union.
+* Erosion is distributive over set intersection.
+* Dilation is a pseudo-inverse of the erosion, and vice versa.
+
+While understanding the set theory axioms of erosion and dilation is not necessary to understand them, they are still interesting.
+
+Morophological Operations Playground
+------------------------------------
+
+Open
+~~~~
+
+Open is another name of erosion followed by dilation. It is useful in removing noise.
+
+.. figure:: ../../../../vision/media/open.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: Open Example
+    :figclass: align-center
+
+Close
+~~~~~
+
+Closing is reverse of Opening, Dilation followed by Erosion. It is useful in closing small holes inside the foreground objects.
+
+.. figure:: ../../../../vision/media/close.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: Close Example
+    :figclass: align-center
+
+Morphological Gradient
+~~~~~~~~~~~~~~~~~~~~~~
+
+It is the difference between dilation and erosion of an image. The result will look like the outline of the object.
+
+
+.. figure::../../../../vision/media/radient.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: Gradient Example
+    :figclass: align-center
+
+Uses in FRC
+-----------
+
+FRC provides less than ideal environments for computer vision. Often times there is noise in your images that cannot be overcome by reducing the exposure of your camera and thresholding. When this occurs, consider using a morphological operation.
+

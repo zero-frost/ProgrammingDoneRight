@@ -23,6 +23,15 @@ Welcome to FRC Programming Done Right's documentation!
 
    control/*
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Vision
+   :glob:
+   
+   vision/*
+   
+   
+
 Indices and tables
 ==================
 
