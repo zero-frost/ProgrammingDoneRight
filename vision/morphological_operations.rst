@@ -193,4 +193,3 @@ Uses in FRC
 -----------
 
 FRC provides less than ideal environments for computer vision. Often times there is noise in your images that cannot be overcome by reducing the exposure of your camera and thresholding. When this occurs, consider using a morphological operation.
-
