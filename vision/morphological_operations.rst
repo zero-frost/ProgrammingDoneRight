@@ -1,7 +1,7 @@
 Morphological Operations
 ========================
 
-Binary iamges may contain noise (pixels that passed the initial threshold test but are not desired). Morphological image processing attempts to remove the noise of inages while accounting for the form and structure of the image, as well as preserving the desired pixels' integrity. This guide dives into the math behind morphological operations, and then explains how they can be used in FRC.
+Binary images may contain noise (pixels that passed the initial threshold test but are not desired). Morphological image processing attempts to remove the noise of images while accounting for the form and structure of the image, as well as preserving the desired pixels' integrity. This guide dives into the math behind morphological operations, and then explains how they can be used in FRC.
 
 .. figure:: ../../../../vision/media/example.png
     :width: 120px
