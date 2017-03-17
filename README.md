@@ -1,6 +1,8 @@
 # FRC-PDR
 FRC Programming Done Right
 
+[![Documentation Status](https://readthedocs.org/projects/frc-pdr/badge/?version=latest)](http://frc-pdr.readthedocs.io/en/latest/?badge=latest)
+
 ## Contributing
 FRC-PDR is created using Sphinx. To install
 
