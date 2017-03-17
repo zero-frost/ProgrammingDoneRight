@@ -1,10 +1,10 @@
 # FRC-PDR
 FRC Programming Done Right
 
-##Contributing
+## Contributing
 FRC-PDR is created using Sphinx. To install
 
-###With python2.7
+### With python2.7
 `pip install -r requirements.txt`
 
 After that, you just need to run
