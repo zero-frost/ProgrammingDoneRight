@@ -1,7 +1,6 @@
 # FRC Programming Done Right
 
 [![Join the chat at https://gitter.im/FRC-PDR/ProgrammingDoneRight](https://badges.gitter.im/FRC-PDR/ProgrammingDoneRight.svg)](https://gitter.im/FRC-PDR/ProgrammingDoneRight?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![Documentation Status](https://readthedocs.org/projects/frc-pdr/badge/?version=latest)](http://frc-pdr.readthedocs.io/en/latest/?badge=latest)
 
 ## Contributing
