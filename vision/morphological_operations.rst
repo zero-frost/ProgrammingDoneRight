@@ -3,7 +3,7 @@ Morphological Operations
 
 Binary images may contain noise (pixels that passed the initial threshold test but are not desired). Morphological image processing attempts to remove the noise of images while accounting for the form and structure of the image, as well as preserving the desired pixels' integrity. This guide dives into the math behind morphological operations, and then explains how they can be used in FRC.
 
-.. figure:: ../../../../vision/media/example.png
+.. figure:: ../vision/media/example.png
     :width: 120px
     :align: center
     :height: 60px
@@ -14,9 +14,27 @@ Morphological image processing is a collection of non-linear operations related 
 
 The core idea in binary morphology is to probe an image with a simple, pre-defined shape, and then draw conclusions on how this shape fits or misses the shapes in the image. This simple "probe" is called kernel, and is itself a binary image (i.e., a subset of the space or grid), The kernel dimensions are not limited to 3x3, but OpenCV limits them to be :math:`N\times N` where :math:`N \in \mathbb{Z}_{odd}`, so here we will make the same restrictions.
 
-Here are a few common kernels used:
+Here are a two common kernels used:
 
-:math:`\left( \begin{array}{ccc} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{array} \right)`	:math:`\left( \begin{array}{ccc} 1 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 1 & 1 \end{array} \right)`	:math:`\left( \begin{array}{ccc} 0 & 1 & 0 \\ 1 & 1 & 1 \\ 0 & 1 & 0 \end{array} \right)`
+:math:`\left( \begin{array}{ccc} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{array} \right)`    :math:`\left( \begin{array}{ccc} 0 & 1 & 0 \\ 1 & 1 & 1 \\ 0 & 1 & 0 \end{array} \right)`
+
+
+.. tabs::
+
+   .. code-tab:: java
+
+       Mat kernel = Imgproc.getStructuringElement(Imgproc.RECT, new Size(3,3));
+       Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_CROSS, new Size(3,3));
+
+   .. code-tab:: c++
+
+       Mat kernel = cv::getStructuringElement(MORPH_RECT, Size(3,3) Point(-1,-1);
+       Mat kernel = cv::getStructuringElement(MORPH_CROSS, Size(3,3) Point(-1,-1);
+
+   .. code-tab:: python
+
+       kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(3,3))
+       kernel = cv2.getStructuringElement(cv2.MORPH_CROSS,(3,3))
 
 
 Defintion: Let :math:`E` be a Euclidean space :math:`\mathbb{R}^d` or an integer grid :math:`\mathbb{Z}^d` for some dimension :math:`d`, and :math:`A` be a a binary image where :math:`A \in E`.
@@ -28,12 +46,26 @@ The erosion of the binary image :math:`A` by the kernel :math:`B` is defined by:
 
 :math:`A\ominus B=\bigcap _{{b\in B}}A_{{-b}}.`
 
-.. figure::../../../../vision/media/erode.png
+.. figure:: ../vision/media/erode.png
     :width: 120px
     :align: center
     :height: 60px
     :alt: Erosion Example
     :figclass: align-center
+
+.. tabs::
+
+   .. code-tab:: java
+
+       Imgproc.erode(src, dst, kernel);
+
+   .. code-tab:: c++
+
+       cv::erode(src, dst, kernel, Point(-1,-1), 1);
+
+   .. code-tab:: python
+
+       erosion = cv2.erode(src, kernel, iterations=1)
 
 Dilation
 ------------
@@ -42,12 +74,26 @@ The dilation of :math:`A` by the structuring element :math:`B` is defined by:
 
 :math:`A\oplus B=\bigcup _{{b\in B}}A_{b}.`
 
-.. figure::../../../../vision/media/dilate.png
+.. figure:: ../vision/media/dilate.png
     :width: 120px
     :align: center
     :height: 60px
     :alt: Dilation Example
     :figclass: align-center
+
+.. tabs::
+
+   .. code-tab:: java
+
+       Imgproc.dilate(src, dst, kernel);
+
+   .. code-tab:: c++
+
+       cv::dilate(src, dst, kernel, Point(-1,-1), 1);
+
+   .. code-tab:: python
+
+       dilation = cv2.dilate(src, kernel, iterations=1)
 
 Properties of Morphologpical Operations
 ---------------------------------------
@@ -68,24 +114,53 @@ Open
 
 Open is another name of erosion followed by dilation. It is useful in removing noise.
 
-.. figure:: ../../../../vision/media/open.png
+.. figure:: ../vision/media/open.png
     :width: 200px
     :align: center
     :height: 100px
     :alt: Open Example
     :figclass: align-center
 
+.. tabs::
+
+   .. code-tab:: java
+
+       Imgproc.morphologyEx(mFGMask,mFGMask,Imgproc.MORPH_OPEN,kernel);    
+
+   .. code-tab:: c++
+
+       cv::morphologyEx(src, dst, MORPH_OPEN, kernel, Point(-1,-1), 1);  
+
+   .. code-tab:: python
+
+       opening = cv2.morphologyEx(src, cv2.MORPH_OPEN, kernel)
+
+
 Close
 ~~~~~
 
 Closing is reverse of Opening, Dilation followed by Erosion. It is useful in closing small holes inside the foreground objects.
 
-.. figure:: ../../../../vision/media/close.png
+.. figure:: ../vision/media/close.png
     :width: 200px
     :align: center
     :height: 100px
     :alt: Close Example
     :figclass: align-center
+
+.. tabs::
+
+   .. code-tab:: java
+
+       Imgproc.morphologyEx(mFGMask,mFGMask,Imgproc.MORPH_CLOSE,kernel);
+
+   .. code-tab:: c++
+
+       cv::morphologyEx(src, dst, MORPH_CLOSE, kernel, Point(-1,-1), 1);  
+
+   .. code-tab:: python
+
+       closing = cv2.morphologyEx(src, cv2.MORPH_CLOSE, kernel)
 
 Morphological Gradient
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -93,12 +168,26 @@ Morphological Gradient
 It is the difference between dilation and erosion of an image. The result will look like the outline of the object.
 
 
-.. figure::../../../../vision/media/radient.png
+.. figure:: ../vision/media/gradient.png
     :width: 200px
     :align: center
     :height: 100px
     :alt: Gradient Example
     :figclass: align-center
+
+.. tabs::
+
+   .. code-tab:: java
+
+        Imgproc.morphologyEx(mFGMask,mFGMask,Imgproc.MORPH_GRADIENT,kernel);
+       
+   .. code-tab:: c++
+
+       cv::morphologyEx(src, dst, MORPH_GRADIENT, kernel, Point(-1,-1), 1);   
+
+   .. code-tab:: python
+
+       opening = cv2.morphologyEx(src, cv2.MORPH_GRADIENT, kernel)
 
 Uses in FRC
 -----------
