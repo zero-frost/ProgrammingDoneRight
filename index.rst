@@ -28,11 +28,3 @@ Welcome to FRC Programming Done Right's documentation!
 
    vision/thresholding.rst
    vision/morphological_operations.rst
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
