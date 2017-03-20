@@ -164,5 +164,4 @@ The goal is to make the boiler tape white (255), and everything else black (0). 
     :alt: Boiler Thresholded
     :figclass: align-center
 
-If you find that you have noise, which is stray pixels, or if you thresholded away part of the inside of your target, please check out the morphological operations page!
-
+If you find that you have noise, which is stray pixels, or if you thresholded away part of the inside of your target, please check out the morphological operations page.
