@@ -146,3 +146,23 @@ The syntax for each language changes slightly, as observed:
 
        dst = cv2.inRange(src, np.array([low1, low2, low3]), np.array([high1, high2, high3]))
 
+Let's tackle an example. This is a pretty standard image that one might have if using green LEDs for the 2017 game. 
+
+.. figure:: ../vision/media/boilerraw.jpg
+    :width: 320px
+    :align: center
+    :height: 2400px
+    :alt: Boiler Raw
+    :figclass: align-center
+
+The goal is to make the boiler tape white (255), and everything else black (0). By using the Multi-Thresh program, the RGB min and max values were found to be (0, 90, 0), (46, 255, 255), and they produce the following image:
+
+.. figure:: ../vision/media/boilerthresh.png
+    :width: 320px
+    :align: center
+    :height: 2400px
+    :alt: Boiler Thresholded
+    :figclass: align-center
+
+If you find that you have noise, which is stray pixels, or if you thresholded away part of the inside of your target, please check out the morphological operations page!
+
