@@ -26,5 +26,6 @@ Welcome to FRC Programming Done Right's documentation!
    :caption: Vision
    :glob:
 
+   vision/introduction.rst
    vision/thresholding.rst
    vision/morphological_operations.rst
