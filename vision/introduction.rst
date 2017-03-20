@@ -27,7 +27,7 @@ C++
 OpenCV's C++ binding encodes images as matrices, where each element in the matrix directly encodes for the pixel value at that particular index.
 
 
-.. code-block:: ruby
+.. code-block:: c++
 
    // creates empty matrices
    cv::Mat A, C;
@@ -43,7 +43,7 @@ Java
 
 Java's bindings also utilize matrices to encode images, however, as is explained later on, it is a bit trickier to display images.
 
-.. code-block:: ruby
+.. code-block:: java
 
    // allocates memory for a new matrix
    Mat frame = new Mat();
