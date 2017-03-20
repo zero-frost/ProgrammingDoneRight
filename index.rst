@@ -10,11 +10,9 @@ Welcome to FRC Programming Done Right's documentation!
    :maxdepth: 2
    :caption: Introduction:
 
-   introduction/variables.rst
-   introduction/methods.rst
-   introduction/classes.rst
-   introduction/conditions.rst
-   introduction/loops.rst
+   Introduction to Java <https://www.tutorialspoint.com/java/index.htm>
+   Introduction to C++ <https://www.tutorialspoint.com/c++/index.htm>
+   Introduction to Python <https://www.tutorialspoint.com/python3/index.htm>
 
 .. toctree::
    :maxdepth: 2
@@ -27,14 +25,6 @@ Welcome to FRC Programming Done Right's documentation!
    :maxdepth: 2
    :caption: Vision
    :glob:
-   
-   vision/*
-   
-   
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   vision/thresholding.rst
+   vision/morphological_operations.rst
