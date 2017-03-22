@@ -127,6 +127,49 @@ It is recommended that you save an image every so often for debugging purposes. 
 
        cv2.imwrite('picture.png',img)
 
+Displaying an Image
+~~~~~~~~~~~~~~~~~~~
+
+In order to help the development process, it helps to see the image and the effects of the operations that you apply to an image. When you display an image, make sure to have a waitKey(x) where x is the time to wait in milliseconds. Typically 10 milliseconds is sufficient. If -1 is passed as the arguement, the program will wait indefinitely until a key is pressed. 
+
+.. tabs::
+
+   .. code-tab:: java
+
+    public BufferedImage Mat2BufferedImage(Mat m){
+    	int bufferSize = m.channels()*m.cols()*m.rows();
+    	byte [] b = new byte[bufferSize];
+    	m.get(0,0,b); // get all the pixels
+    	BufferedImage image = new BufferedImage(m.cols(),m.rows(), type);
+    	final byte[] targetPixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
+    	System.arraycopy(b, 0, targetPixels, 0, b.length);  
+    	return image;
+    }
+
+    public void displayImage(Image img2) {   
+    	ImageIcon icon=new ImageIcon(img2);
+    	JFrame frame=new JFrame();
+    	frame.setLayout(new FlowLayout());        
+    	frame.setSize(img2.getWidth(null)+50, img2.getHeight(null)+50);     
+    	JLabel lbl=new JLabel();
+    	lbl.setIcon(icon);
+    	frame.add(lbl);
+    	frame.setVisible(true);
+    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+       
+   .. code-tab:: c++
+
+	imshow("window name", img);	
+	char keypress = waitKey(10);
+
+   .. code-tab:: py
+
+       cv2.imshow('window name',img)
+       cv2.waitKey(0)
+
+As you noticed, OpenCV Java does not have an "imshow" method, making displaying an image a much more complicated ordeal.
+
 
 Getting an image from a usb camera
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
