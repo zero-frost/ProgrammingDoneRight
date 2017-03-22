@@ -12,7 +12,7 @@ Welcome to FRC Programming Done Right's documentation!
     :caption: Introduction
 
     Introduction to Java <https://www.tutorialspoint.com/java/index.htm>
-    Introduction to C++ <https://www.tutorialspoint.com/c++/index.htm>
+    Introduction to C++ <https://www.tutorialspoint.com/cplusplus/index.htm>
     Introduction to Python <https://www.tutorialspoint.com/python3/index.htm>
 
 
