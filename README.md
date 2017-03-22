@@ -4,9 +4,8 @@
 [![Documentation Status](https://readthedocs.org/projects/frc-pdr/badge/?version=latest)](http://frc-pdr.readthedocs.io/en/latest/?badge=latest)
 
 ## Contributing
-FRC-PDR is created using Sphinx. To install
+FRC-PDR is created using Sphinx. To install:
 
-### With python2.7
 `pip install -r requirements.txt`
 
 After that, you just need to run
