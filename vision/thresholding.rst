@@ -15,9 +15,9 @@ The rest of the page will talk about the various types of thresholding technique
 Threshold
 ---------
 
-The "threshold" algorithm is defined mathematically as 
+The "threshold" algorithm is defined mathematically as
 
-.. math:: 
+.. math::
 
     dst(x,y) =
     \begin{cases}
@@ -52,26 +52,6 @@ While other methods besides THRESH_BINARY exist in OpenCV, there is not a good a
 
 Note that this is a high pass filter, and nothing more.
 
-
-Using HSV Thresholding
---------------------------------
-HSV thresholding uses hue, saturation, and value to threshold images. Unlike RGB, HSV separates the image intensity, from the color information. This is very useful in computer applications such as vision tracking. In FRC, HSV is a great tool to detect the reflective vision tape if using a LEDs to illuminate the tape. It is also possible to use an IR camera with IR LEDs which would output a grayscale image. However, there are other threshold options that seperate image intensity with color but HSV is often used simply because the code for converting between RGB and HSV is widely available and easily implemented. Before using HSV to threshold the image, you must convert the image retrieved from the camera to the HSV colorspace (see code below).
-
-.. tabs::
-
-   .. code-tab:: java
-
-       Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2HSV);
-
-   .. code-tab:: c++
-
-       cv::cvtColor(src, dst, CV_BGR2HSV);
-
-   .. code-tab:: py
-
-      dst = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
-
-
 inRange
 -------
 
@@ -85,7 +65,7 @@ OpenCV's "inRange" function checks if :math:`low < pixel value < high`, and if i
     :alt: Erosion Example
     :figclass: align-center
 
-Note that this is identical to threshold's output because the parameters used made inRange behave the same. InRange is useful when thresholding for certain colors, as it is more than a simply high pass filter. 
+Note that this is identical to threshold's output because the parameters used made inRange behave the same. InRange is useful when thresholding for certain colors, as it is more than a simply high pass filter.
 
 .. tabs::
 
@@ -150,7 +130,7 @@ Thresholding with Color Images
 
 Up until now, the examples have been with grayscale images. Color images are different in the fact that they have 3 channels instead of one, meaning that threshold values must be provided for each channel (color). This is a very slow and tedious process. To make it easier, use this program: https://github.com/rr1706/Multi-Thresh. This utilizes sliders that dynamically changes the threshold values for each color, and also allows the user to tune HSV images as well. Always use inRange when thresholding RGB images
 
-The syntax for each language changes slightly, as observed: 
+The syntax for each language changes slightly, as observed:
 
 .. tabs::
 
@@ -166,13 +146,31 @@ The syntax for each language changes slightly, as observed:
 
        dst = cv2.inRange(src, np.array([low1, low2, low3]), np.array([high1, high2, high3]))
 
+Using HSV Thresholding
+--------------------------------
+HSV thresholding uses hue, saturation, and value to threshold images. Unlike RGB, HSV separates the image intensity, from the color information. This is very useful in computer applications such as vision tracking. In FRC, HSV is a great tool to detect the reflective vision tape if using a LEDs to illuminate the tape. It is also possible to use an IR camera with IR LEDs which would output a grayscale image. However, there are other threshold options that seperate image intensity with color but HSV is often used simply because the code for converting between RGB and HSV is widely available and easily implemented. Before using HSV to threshold the image, you must convert the image retrieved from the camera to the HSV colorspace (see code below).
+
+.. tabs::
+
+  .. code-tab:: java
+
+      Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2HSV);
+
+  .. code-tab:: c++
+
+      cv::cvtColor(src, dst, CV_BGR2HSV);
+
+  .. code-tab:: py
+
+     dst = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
+
 Using Trackbars/Sliders for Real Time Tuning
 --------------------------------------------
 As said above, sliders allow you to dynamically change HSV values, allowing you to fine tune the correct threshold values in real time. Here’s how to create them. Note: Java does not support OpenCV to handle GUI so trackbars must be done with Swing and jsliders. More info on that `here <http://docs.oracle.com/javase/tutorial/uiswing/components/slider.html>`_.
 
 
 .. tabs::
-       
+
    .. code-tab:: c++
 
        cv::namedWindow("Title of Window");
@@ -185,7 +183,7 @@ As said above, sliders allow you to dynamically change HSV values, allowing you 
        var = cv2.getTrackbarPos(‘title of slider’, ‘title of window’);
 
 
-Let's tackle an example. This is a pretty standard image that one might have if using green LEDs for the 2017 game. 
+Let's tackle an example. This is a pretty standard image that one might have if using green LEDs for the 2017 game.
 
 .. figure:: ../vision/media/boilerraw.jpg
     :width: 320px
