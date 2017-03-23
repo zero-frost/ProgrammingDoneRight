@@ -52,6 +52,26 @@ While other methods besides THRESH_BINARY exist in OpenCV, there is not a good a
 
 Note that this is a high pass filter, and nothing more.
 
+
+Using HSV Thresholding
+--------------------------------
+HSV thresholding uses hue, saturation, and value to threshold images. Unlike RGB, HSV separates the image intensity, from the color information. This is very useful in computer applications such as vision tracking. In FRC, HSV is a great tool to detect the reflective vision tape if using a LEDs to illuminate the tape. It is also possible to use an IR camera with IR LEDs which would output a grayscale image. However, there are other threshold options that seperate image intensity with color but HSV is often used simply because the code for converting between RGB and HSV is widely available and easily implemented. Before using HSV to threshold the image, you must convert the image retrieved from the camera to the HSV colorspace (see code below).
+
+.. tabs::
+
+   .. code-tab:: java
+
+       Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2HSV);
+
+   .. code-tab:: c++
+
+       cv::cvtColor(src, dst, CV_BGR2HSV);
+
+   .. code-tab:: py
+
+      dst = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
+
+
 inRange
 -------
 
@@ -145,6 +165,25 @@ The syntax for each language changes slightly, as observed:
    .. code-tab:: py
 
        dst = cv2.inRange(src, np.array([low1, low2, low3]), np.array([high1, high2, high3]))
+
+Using Trackbars/Sliders for Real Time Tuning
+--------------------------------------------
+As said above, sliders allow you to dynamically change HSV values, allowing you to fine tune the correct threshold values in real time. Here’s how to create them. Note: Java does not support OpenCV to handle GUI so trackbars must be done with Swing and jsliders. More info on that `here <http://docs.oracle.com/javase/tutorial/uiswing/components/slider.html>`_.
+
+
+.. tabs::
+       
+   .. code-tab:: c++
+
+       cv::namedWindow("Title of Window");
+       cv::createTrackbar("Title of slider", "Title of Window", &variable, highest number);
+
+   .. code-tab:: py
+
+       cv2.namedWindow('Title of Window')
+       cv2.createTrackbar('Title of Slider’, ‘Title of Window”, 0, 255, nothing)
+       var = cv2.getTrackbarPos(‘title of slider’, ‘title of window’);
+
 
 Let's tackle an example. This is a pretty standard image that one might have if using green LEDs for the 2017 game. 
 
