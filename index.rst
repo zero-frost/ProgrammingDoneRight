@@ -30,8 +30,8 @@ Welcome to FRC Programming Done Right's documentation!
 .. toctree::
     :maxdepth: 2
     :caption: Vision
-    :titlesonly:
 
     vision/introduction.rst
     vision/thresholding.rst
     vision/morphological_operations.rst
+    vision/contours.rst
