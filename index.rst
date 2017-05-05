@@ -15,7 +15,7 @@ Welcome to FRC Programming Done Right's documentation!
     Introduction to C++ <https://www.tutorialspoint.com/cplusplus/index.htm>
     Introduction to Python <https://www.tutorialspoint.com/python3/index.htm>
 
-
+|
 
 .. toctree::
     :maxdepth: 2
@@ -24,6 +24,8 @@ Welcome to FRC Programming Done Right's documentation!
 
     control/*
     motors/*
+
+|
 
 .. toctree::
     :maxdepth: 2
