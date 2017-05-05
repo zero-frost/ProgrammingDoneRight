@@ -40,7 +40,7 @@ The spark is the easiest to connect a limit switch to, since there is no solderi
 
 Programming a Limit Switch
 --------------------------
-Determining the status of the limit switch can be determined using the ``get`` method of ``DigitalInput``. Using them to control motor behavior is a bit harder. Your first instinct may be to call ``get`` on the limit switch, and if ``get`` returns ``true``, set the motor to 0. This is... *not* going to work, unless you want the motor to be disabled for the rest of the game. When the limit switch is enabled, you need to limit motor speed **only in that direction** or else you can't reverse the motor. We can do this with a simple min/max function.
+The status of the limit switch can be determined using the ``get`` method of ``DigitalInput``. Using them to control motor behavior is a bit harder. Your first instinct may be to call ``get`` on the limit switch, and if ``get`` returns ``true``, set the motor to 0. This is... *not* going to work, unless you want the motor to be disabled for the rest of the game. When the limit switch is enabled, you need to limit motor speed **only in that direction** or else you can't reverse the motor. We can do this with a simple min/max function.
 
 .. tabs::
 
