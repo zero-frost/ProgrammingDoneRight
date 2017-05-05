@@ -3,8 +3,16 @@
     You can adapt this file completely to your liking, but it should at least
     contain the root `toctree` directive.
 
-Welcome to FRC Programming Done Right's documentation!
-======================================================
+.. figure:: media/blackPDR.png
+    :width: 750px
+    :align: center
+    :height: 840px
+    :alt: PDR
+    :figclass: align-center
+
+Welcome!
+=======
+
 
 .. toctree::
     :maxdepth: 2
