@@ -12,7 +12,16 @@ Feedforward
 
 PID Control lies at the heart of any advanced robotics motion. Essentially, it is a way of controlling something, i.e. a wheel or an arm, using information gathered by the surroundings, In robotics, data is usually gathered through sensors, like encoders, range sensors, light sensors, etc. Using this data, robots can determine how they should act.
 
-Imagine you are driving a car and you see a stop sign. When you're about, 200ft away, you start applying the brakes the car starts slowing down. As you get closer, you keep your foot on the brake. If you don't think you're slowing down enough, you push harder. If the car will stop too far away, you let off the brake a little, so you get exactly where you want to be. This is an example of a feedback loop. You had a task (stopping), and you used information gathered by your surroundings (distance from the stop sign measure with your eyes) to cause an mechanism (your foot on the brake) to act accordingly.
+Let's say you have a cold room, like 10 degrees. You want to warm it up to a nice 23 degrees (celsius). Luckily you have a heater. You set it's thermostat to 23, and it starts heating. It heats as fast as it can, and quickly gets to 23 degrees. It immediatly turns off. However, the coils on the heater are still warm, and continue to heat the air for a while after. The room heats up to 25, before the coils cool down, and the room loses heat to the environment. It dips down to 23 degrees, and the heater turns on - but it takes time for the coils to turn on, and during this time the room cools down to 21 degrees. This oscilliation around the set point slowly dies out, over a long period of time.
+
+.. figure:: ../control/media/heaterTempGraph.png
+    :width: 320px
+    :align: center
+    :height: 240px
+    :alt: Binary Image
+    :figclass: align-center
+
+PID is designed to intelligently approach the target to reach it as quickly as possible. So in this example, the heater would have turned off before it hit 23, say at 21 degrees, such that it natrually warms up to 23.
 
 In robotics, the same concept can be applied. Many teams use PID control to drive during autonomous, using encoders as their sensor, shooting, using cameras as their sensor, or rotating, using gyros as their sensor.
 
