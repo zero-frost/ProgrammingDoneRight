@@ -11,7 +11,7 @@
     :figclass: align-center
 
 Welcome!
-=======
+========
 
 
 .. toctree::
