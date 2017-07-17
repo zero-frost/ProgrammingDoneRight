@@ -1,6 +1,6 @@
-======================
+**********************
 Introduction to DevOps
-======================
+**********************
 
 Most people who come this guide will have heard about it from a friend. They
 normally need help with some component in their code, or want to know how to use
@@ -19,20 +19,11 @@ This guide is built for these people. The people who wish to improve
 development workflow, to better their build systems, and to clean up their codebase,
 and to make their lives as maintainers *much* easier.
 
-What is DevOps?
----------------
-
-First we must establish the obvious, **DevOps** is a "clipped compound" of the
-words ***development*** and ***operations***. This lends credence to what it
-actually means. DevOps as a term was first coined at an Agile software conference
-in 2008, who's name was popularized due to a series of "devopsdays" in 2009,
-but we don't care about the history of the term, we are here to learn about what
-DevOps *is*.
-
 
 DevOps
 ------
-DevOps is a blanket term that encompasses many aspects of the software development cycle.
+First we must establish the obvious, **DevOps** is a "clipped compound" of the
+words ***development*** and ***operations***. DevOps is a blanket term that encompasses many aspects of the software development cycle.
 As you can see in **Figure 1**. It is often described as the combination of many aspects of
 development, quality assurence, and general operations.
 
@@ -51,33 +42,67 @@ development, quality assurence, and general operations.
         derieved from `Wylve <https://commons.wikimedia.org/wiki/User:Wylve>`_ /
         `CC BY 3.0 <http://creativecommons.org/licenses/by/3.0>`_
 
-.. topic:: DevOps Toolchains
+DevOps Toolchains
+^^^^^^^^^^^^^^^^^
 
-    A "toolchain", is really a set of tools intended for use with DevOps. These
-    tools cover a wide array of uses, as DevOps is such an encompassing field.
-    Tools typically fall into a few different catagories, as can be seen below in
-    **Figure 2**. For a quick breakdown of the DevOps "toolchain" flow, see **Figure 3**
+A "toolchain", is really a set of tools intended for use with DevOps. These
+tools cover a wide array of uses, as DevOps is such an encompassing field.
+Tools typically fall into a few different catagories, as can be seen below in
+**Figure 2**. For a quick breakdown of the DevOps "toolchain" flow, see **Figure 3**.
 
-    +---------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Design Phase  | Meaning                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-    +---------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Plan          | The planning phase is  pretty straight forward, but this is where much time will be spent. Planning is a key step in the design process, and should not be downplayed.                                                                                                                                                                                                                                                                                                    |
-    +---------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Create        | This is the beginning development phase; where you and your team begin code synthesis. This is often regarded as the most important part, but as we see later, it is merely a small part in the bigger picture.                                                                                                                                                                                                                                                           |
-    +---------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Verify/Test   | One of the ***most*** important, yet most annoying phases of the entire development process, is insuring the code does what it is supposed to do. This can be accomplished in a variety of ways, but the way it is typically handled, is by designing through `Test Driven Design`.                                                                                                                                                                                       |
-    +---------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Package       | Pre-deployment phase. After you pass the tests, you must have your code ready to ship, or in our case, deploy to our robot at the end of build season. This is normally the last phase that any developers would stop at.                                                                                                                                                                                                                                                 |
-    +---------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Release       | This phase seems pretty simple, but it isn't as small as it seems. This isn't just the merge into master that we've all been waiting 6 weeks for, no. This is where we finalize the code is ready, re-run the tests until we feel comfortable, and then finally push to the RoboRIO.                                                                                                                                                                                      |
-    +---------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Configuration | This step is also pretty obvious in our case. Tuning your teams robot, calibrating sensors, and ensuring the code will be able to run to its full potential by ensuring our vessel is functional.                                                                                                                                                                                                                                                                         |
-    +---------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Monitor       | This phase is where all the improvements happen in your code. This is when your robot is out there preforming, kicking butt, or perhaps breaking for some of us. This is the time where you watch, make notes of what happened, and prepare to begin this cycle all over again with planning, so as to preserve the good development cycle you have built up, as well as fixing the issues that exist in your code currently. Or you can blame mechanical. That's ok too. |
-    +---------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+    .. topic:: Plan
+
+            The planning phase is  pretty straight forward, but this is where
+            much time will be spent. Planning is a key step in the design process,
+            and should not be downplayed.
+
+    .. topic:: Create
+
+            This is the beginning development phase; where you and your team begin
+            code synthesis. This is often regarded as the most important part,
+            but as we see later, it is merely a small part in the bigger picture.
+
+    .. topic:: Verify/Test
+
+            One of the ***most*** important, yet most annoying phases of the entire
+            development process, is insuring the code does what it is supposed to do.
+            This can be accomplished in a variety of ways, but the way it is
+            typically handled, is by designing through `Test Driven Design`.
+
+    .. topic:: Package
+
+            Pre-deployment phase. After you pass the tests, you must have your
+            code ready to ship, or in our case, deploy to our robot at the end
+            of build season. This is normally the last phase that many developers
+            will stop at.
+
+    .. topic:: Release
+
+            This phase seems pretty simple, but it isn't as small as it seems.
+            This isn't just the merge into master that we've all been waiting
+            6 weeks for, no. This is where we finalize the code is ready,
+            re-run the tests until we feel comfortable, and then finally push
+            to the RoboRIO.
+
+    .. topic:: Configuration
+
+            This step is also pretty obvious in our case. Tuning your teams robot,
+            calibrating sensors, and ensuring the code will be able to run to its
+            full potential by ensuring our vessel is functional.
+
+    .. topic:: Monitor
+
+            This phase is where all the improvements happen in your code. This is
+            when your robot is out there preforming, kicking butt, or perhaps breaking
+            for some of us. This is the time where you watch, make notes of what happened,
+            and prepare to begin this cycle all over again with planning, so as to
+            preserve the good development cycle you have built up, as well as fixing
+            the issues that exist in your code currently.
 
 **Figure 2**
-A table depicting the various stages of the DevOps "toolchain" flow, and a short
+
+A listing of the various stages of the DevOps "toolchain" flow, and a short
 description of each phase.
 
 .. figure:: ../devops/media/Devops-toolchain.png
@@ -92,3 +117,22 @@ description of each phase.
 
         Image by `Kharnagy <https://commons.wikimedia.org/w/index.php?title=User:Kharnagy&action=edit&redlink=1>`_ /
         `CC BY-SA 4.0 <http://creativecommons.org/licenses/by-sa/4.0>`_
+
+.. topic:: Whats to Come
+In the following sections, we will break down the each of these aspects into
+their own section. What it is, how it effects your development, costs, both
+in terms of money and time, its worth, and tools for the job. For some other topics,
+we will break it down even further. There will be sections about Git and
+Version Control Systems (we will just use VCS or Git to refer to these),
+Continuous Integration and its applications, as well as many more.
+
+Below is a Table of Contents, providing links to all of the relevent pages.
+I hope you enjoy the reading, and that this knowledge may help your team both now,
+and in the future in your careers.
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Phases
+    :glob:
+
+    phases/*

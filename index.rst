@@ -43,3 +43,10 @@ Welcome!
     vision/thresholding.rst
     vision/morphological_operations.rst
     vision/contours.rst
+
+.. toctree::
+    :maxdepth: 1
+    :caption: DevOps
+    :glob:
+
+    devops/*
